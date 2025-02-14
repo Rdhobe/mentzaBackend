@@ -48,7 +48,10 @@ API_KEYS = os.environ.get("OPENAI_API_KEYS")
 token_manager = TokenManager(API_KEYS)
 
 OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
-
+@app.route('/')
+def index():
+    return jsonify({"message": "server is running"})
+    
 @app.route('/chat/', methods=['POST'])
 def chat():
     try:
